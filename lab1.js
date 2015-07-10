@@ -41,8 +41,8 @@ function assert(expression, failureMessage) {
 
  Here are some examples for how to use the assert method:
 */
-assert(1 === 1, '1 equals 1 - this assert will pass.');
-assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.');
+// assert(1 === 1, '1 equals 1 - this assert will pass.');
+// assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.');
 
 /* ===========================================================================
 ------------------Assertions (8 points total)---------------------------------
@@ -59,7 +59,8 @@ var dogsIncage = true;
 
 assert(lionCage[2] === 'Mufassa', 'SSSiiimmmmbbbaaaaa');
 assert(!dogsIncage, 'Who let them out?');
-//Bang! bang! thats how.
+//Bang! bang! In the assert function, the if statement condition is flipping the
+// boolean value of the input; so its going true>false>true (two rights make it wrong!)
 
 /* ========================================================================
 ----------------- Meerkats (20 points total)-------------------------------
