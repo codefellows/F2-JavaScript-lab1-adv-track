@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 
 /* LAB 1: A Trip to Woodland Park Zoo
 
@@ -58,6 +58,8 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
 */
 
 //your code goes here
+assert("hippopotamus" === "hippopotamus",'hippopotamus equals hippopotamus - this assert will pass.');
+assert("jaguar" === "cheetah", 'this is a failing assertion -A jaguar is not a cheetah.');
 
 /* ========================================================================
 ----------------- Meerkats (20 points total)-------------------------------
@@ -66,8 +68,11 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
  research).  We're going to translate two sentences into meerkat speech.
 */
 
-var sentence1 = 'More food please.';
-var sentence2 = 'Come over here so you can scratch my belly.';
+var sentence1 = 'More food please.'.split(" ");
+console.log(sentence1);
+// var sentance1Array = sentence1.split(" ");
+var sentence2 = 'Come over here so you can scratch my belly.'.split(" ");
+// var sentence2Array = sentence2.split(" ");
 /*
  Your goal is to replace the words in the above sentences with 'chirp' The
  assertions at the end of this section should pass when you're done.
@@ -78,7 +83,11 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 // 'chirp' (10 points)
 
 // your code goes here
-
+for (var i = 0; i < sentence1.length; i++) {
+	sentence1[i] = sentence1[i].replace("More", "chrip").replace("food", "chirp").replace("please", "chirp");
+	sentence1.join(" ");
+}
+console.log(sentence1);
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
@@ -99,7 +108,7 @@ assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.',
 */
 
 var favoriteAnimals = ['elephant', 'penguin', 'eagle', 'camel'];
-var nextAnimal;
+var nextAnimal = favoriteAnimals[Math.floor(Math.random() * favoriteAnimals.length)];
 
 // TODO: 12 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
@@ -134,9 +143,16 @@ var tooHungryDay;
 */
 
 // your code goes here
-
-assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
-assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
+// for(i = 0; i < mealsPerDay.length; i++) {
+// 	if(mealsPerDay[i].val < 4) {
+// 		console.log("The lion ate the caretaker today.");
+// 	}
+// 	else(mealsPerDay[i].val >= 4) {
+// 		console.log("The caretaker was spared today.")
+// 	}
+// }
+// assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
+// assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
 
 /* ==================================================================
 ----------------- Code Style (10 points) ----------------------------
