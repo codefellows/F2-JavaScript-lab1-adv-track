@@ -132,7 +132,7 @@ assert(nextAnimal, 'assign something to nextAnimal');
 // number of times the new caretaker fed the lion. one array entry per day
 var mealsPerDay = [5, 4, 3, 6, 2, 4, 3, 4, 5, 1];
 var tooHungryDay;
-
+var averageMeals = (mealsPerDay[i] += mealsPerDay) / 4;
 /*
  TODO: 20 points
  Cycle through the days in mealsPerDay. At each day, print out the average
@@ -143,16 +143,16 @@ var tooHungryDay;
 */
 
 // your code goes here
-// for(i = 0; i < mealsPerDay.length; i++) {
-// 	if(mealsPerDay[i].val < 4) {
-// 		console.log("The lion ate the caretaker today.");
-// 	}
-// 	else(mealsPerDay[i].val >= 4) {
-// 		console.log("The caretaker was spared today.")
-// 	}
-// }
-// assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
-// assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
+for(var i = 0; i < mealsPerDay.length; i++) {
+	if(averageMeals < 4) {
+		console.log(averageMeals);
+ 	}
+	if(averageMeals >= 4) {
+		console.log(averageMeals)
+	}
+}
+assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
+assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
 
 /* ==================================================================
 ----------------- Code Style (10 points) ----------------------------
