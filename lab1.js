@@ -68,11 +68,11 @@ assert("jaguar" === "cheetah", 'this is a failing assertion -A jaguar is not a c
  research).  We're going to translate two sentences into meerkat speech.
 */
 
-var sentence1 = 'More food please.'.split(" ");
-console.log(sentence1);
-// var sentance1Array = sentence1.split(" ");
-var sentence2 = 'Come over here so you can scratch my belly.'.split(" ");
-// var sentence2Array = sentence2.split(" ");
+var sentence1 = 'More food please.';
+var sentence1Split = sentence1.split(" ");
+var sentence2 = 'Come over here so you can scratch my belly.';
+var sentence2Split = sentence2.split(" ");
+
 /*
  Your goal is to replace the words in the above sentences with 'chirp' The
  assertions at the end of this section should pass when you're done.
@@ -83,15 +83,24 @@ var sentence2 = 'Come over here so you can scratch my belly.'.split(" ");
 // 'chirp' (10 points)
 
 // your code goes here
-for (var i = 0; i < sentence1.length; i++) {
-	sentence1[i] = sentence1[i].replace("More", "chrip").replace("food", "chirp").replace("please", "chirp");
-	sentence1.join(" ");
+for (var i = 0; i < sentence1Split.length; i++) {
+	sentence1Split[i] = sentence1Split[i].replace("More", "chirp").replace("food", "chirp").replace("please", "chirp");
+	sentence1 = sentence1Split.join(" ");
+	
 }
-console.log(sentence1);
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
+
 // your code goes here
+while(i <= sentence2Split.length) {
+	sentence2Split[i] = sentence2Split[i].replace("Come", "chirp").replace("over", "chirp").replace("here", "chirp")
+	.replace("so", "chirp").replace("you", "chirp").replace("can", "chirp").replace("scratch", "chirp").replace("my", "chirp")
+	.replace("belly", "chirp");
+	sentence2 = sentence2Split.join(" ");
+}
+// console.log(sentence2Split);
+
 
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
@@ -131,8 +140,8 @@ assert(nextAnimal, 'assign something to nextAnimal');
 
 // number of times the new caretaker fed the lion. one array entry per day
 var mealsPerDay = [5, 4, 3, 6, 2, 4, 3, 4, 5, 1];
-var tooHungryDay;
-var averageMeals = (mealsPerDay[i] += mealsPerDay) / 4;
+var tooHungryDay = 0;
+
 /*
  TODO: 20 points
  Cycle through the days in mealsPerDay. At each day, print out the average
@@ -143,14 +152,30 @@ var averageMeals = (mealsPerDay[i] += mealsPerDay) / 4;
 */
 
 // your code goes here
-for(var i = 0; i < mealsPerDay.length; i++) {
-	if(averageMeals < 4) {
-		console.log(averageMeals);
- 	}
-	if(averageMeals >= 4) {
-		console.log(averageMeals)
-	}
+for(var i = 0, j = 1, mealsTotal = 0, averageMeals = 0;i <= mealsPerDay.length;i++, j++) {
+	console.log(mealsTotal+"meals total")
+	 mealsTotal += mealsPerDay[i];
+	    averageMeals = mealsTotal / j;
+	    if(averageMeals < 4) {
+	    	if(tooHungryDay == 0) {
+	    		tooHungryDay = j;
+	    	}
+        	
+    	}console.log(averageMeals);
+   
 }
+console.log(averageMeals);
+// console.log(mealsTotal);
+
+// for(var i = 0; i < mealsPerDay.length; i++) {
+// 	var averageMeals = (mealsPerDay[i] += mealsPerDay) / 4;
+// 	if(averageMeals < 4) {
+// 		console.log(averageMeals);
+//  	}
+// 	if(averageMeals >= 4) {
+// 		console.log(averageMeals)
+// 	}
+// }
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
 
