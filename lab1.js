@@ -58,8 +58,8 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
 */
 
 //your code goes here
-assert("hippopotamus" === "hippopotamus",'hippopotamus equals hippopotamus - this assert will pass.');
-assert("jaguar" === "cheetah", 'this is a failing assertion -A jaguar is not a cheetah.');
+assert('hippopotamus' === 'hippopotamus', 'hippopotamus equals hippopotamus - this assert will pass.');
+assert('jaguar' === 'cheetah', 'this is a failing assertion -A jaguar is not a cheetah.');
 
 /* ========================================================================
 ----------------- Meerkats (20 points total)-------------------------------
@@ -69,9 +69,9 @@ assert("jaguar" === "cheetah", 'this is a failing assertion -A jaguar is not a c
 */
 
 var sentence1 = 'More food please.';
-var sentence1Split = sentence1.split(" ");
+var sentence1Split = sentence1.split(' ');
 var sentence2 = 'Come over here so you can scratch my belly.';
-var sentence2Split = sentence2.split(" ");
+var sentence2Split = sentence2.split(' ');
 
 /*
  Your goal is to replace the words in the above sentences with 'chirp' The
@@ -84,23 +84,20 @@ var sentence2Split = sentence2.split(" ");
 
 // your code goes here
 for (var i = 0; i < sentence1Split.length; i++) {
-	sentence1Split[i] = sentence1Split[i].replace("More", "chirp").replace("food", "chirp").replace("please", "chirp");
-	sentence1 = sentence1Split.join(" ");
-	
+    sentence1Split[i] = sentence1Split[i].replace('More', 'chirp').replace('food', 'chirp').replace('please', 'chirp');
+      sentence1 = sentence1Split.join(' ');
 }
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
-
 // your code goes here
-while(i <= sentence2Split.length) {
-	sentence2Split[i] = sentence2Split[i].replace("Come", "chirp").replace("over", "chirp").replace("here", "chirp")
-	.replace("so", "chirp").replace("you", "chirp").replace("can", "chirp").replace("scratch", "chirp").replace("my", "chirp")
-	.replace("belly", "chirp");
-	sentence2 = sentence2Split.join(" ");
+while (i <= sentence2Split.length) {
+    sentence2Split[i] = sentence2Split[i].replace('Come', 'chirp').replace('over', 'chirp').replace('here', 'chirp')
+    .replace('so', 'chirp').replace('you', 'chirp').replace('can', 'chirp').replace('scratch', 'chirp').replace('my', 'chirp')
+    .replace('belly', 'chirp');
+    sentence2 = sentence2Split.join(' ');
 }
 // console.log(sentence2Split);
-
 
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
@@ -152,30 +149,17 @@ var tooHungryDay = 0;
 */
 
 // your code goes here
-for(var i = 0, j = 1, mealsTotal = 0, averageMeals = 0;i <= mealsPerDay.length;i++, j++) {
-	console.log(mealsTotal+"meals total")
-	 mealsTotal += mealsPerDay[i];
-	    averageMeals = mealsTotal / j;
-	    if(averageMeals < 4) {
-	    	if(tooHungryDay == 0) {
-	    		tooHungryDay = j;
-	    	}
-        	
-    	}console.log(averageMeals);
-   
+for (var i = 0, j = 1, mealsTotal = 0, averageMeals = 0;i <= mealsPerDay.length;i++, j++) {
+    console.log(averageMeals);
+    console.log(mealsTotal + 'meals total');
+     mealsTotal += mealsPerDay[i];
+        averageMeals = mealsTotal / j;
+        if (averageMeals < 4) {
+          if (tooHungryDay === 0) {
+                tooHungryDay = j;
+          }
+        }
 }
-console.log(averageMeals);
-// console.log(mealsTotal);
-
-// for(var i = 0; i < mealsPerDay.length; i++) {
-// 	var averageMeals = (mealsPerDay[i] += mealsPerDay) / 4;
-// 	if(averageMeals < 4) {
-// 		console.log(averageMeals);
-//  	}
-// 	if(averageMeals >= 4) {
-// 		console.log(averageMeals)
-// 	}
-// }
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
 
@@ -190,9 +174,7 @@ assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
  directory): npm install
 
  Now, type
-  grunt
-   and it will run both jshint and jscs on your code.
-
+  grunt 
  Error and warning descriptions will be printed in the terminal.
  To get full points, correct all of the errors/warnings.
 */
