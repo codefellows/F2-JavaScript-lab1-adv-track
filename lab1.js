@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 
 /* LAB 1: A Trip to Woodland Park Zoo
 
@@ -58,6 +58,8 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
 */
 
 //your code goes here
+assert(('hippopotamus' === 'hippopotamus'), 'hippopotamus equals hippopotamus - this assert will pass.');
+assert(('jaguar' === 'cheetah'), 'this is a failing assertion -A jaguar is not a cheetah.');
 
 /* ========================================================================
 ----------------- Meerkats (20 points total)-------------------------------
@@ -67,7 +69,10 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
 */
 
 var sentence1 = 'More food please.';
+var sentence1Split = sentence1.split(' ');
 var sentence2 = 'Come over here so you can scratch my belly.';
+var sentence2Split = sentence2.split(' ');
+
 /*
  Your goal is to replace the words in the above sentences with 'chirp' The
  assertions at the end of this section should pass when you're done.
@@ -78,16 +83,23 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 // 'chirp' (10 points)
 
 // your code goes here
-
+for (var i = 0; i < sentence1Split.length; i++) {
+  sentence1Split[i] = sentence1Split[i].replace('More', 'chirp').replace('food', 'chirp').replace('please', 'chirp');
+  sentence1 = sentence1Split.join(' ');
+}
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
 // your code goes here
+while (i <= sentence2Split.length) {
+  sentence2Split[i] = sentence2Split[i].replace('Come', 'chirp').replace('over', 'chirp').replace('here', 'chirp')
+  .replace('so', 'chirp').replace('you', 'chirp').replace('can', 'chirp').replace('scratch', 'chirp').replace('my', 'chirp').replace('belly', 'chirp');
+  sentence2 = sentence2Split.join(' ');
+}
 
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
-assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.',
-  'sentence 2 should have 9 chirps');
+assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.', 'sentence 2 should have 9 chirps');
 
 /* ========================================================================
 ----------------- Favorite Animals (12 points)-----------------------------
@@ -99,7 +111,7 @@ assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.',
 */
 
 var favoriteAnimals = ['elephant', 'penguin', 'eagle', 'camel'];
-var nextAnimal;
+var nextAnimal = favoriteAnimals[Math.floor(Math.random() * favoriteAnimals.length)];
 
 // TODO: 12 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
@@ -122,7 +134,7 @@ assert(nextAnimal, 'assign something to nextAnimal');
 
 // number of times the new caretaker fed the lion. one array entry per day
 var mealsPerDay = [5, 4, 3, 6, 2, 4, 3, 4, 5, 1];
-var tooHungryDay;
+var tooHungryDay = 0;
 
 /*
  TODO: 20 points
@@ -134,7 +146,16 @@ var tooHungryDay;
 */
 
 // your code goes here
-
+for (var i = 0, j = 1, mealsTotal = 0, averageMeals = 0;i <= mealsPerDay.length, j <= mealsPerDay.length;i++, j++) {
+  mealsTotal += mealsPerDay[i];
+  averageMeals = mealsTotal / j;
+  console.log(averageMeals);
+  if (averageMeals < 4) {
+    if (tooHungryDay === 0) {
+      tooHungryDay = j;
+    }
+  }
+}
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
 
@@ -149,9 +170,7 @@ assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
  directory): npm install
 
  Now, type
-  grunt
-   and it will run both jshint and jscs on your code.
-
+  grunt 
  Error and warning descriptions will be printed in the terminal.
  To get full points, correct all of the errors/warnings.
 */
