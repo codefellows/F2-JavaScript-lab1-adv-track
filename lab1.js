@@ -150,13 +150,12 @@ var tooHungryDay = 0;
 
 // your code goes here
 for (var i = 0, j = 1, mealsTotal = 0, averageMeals = 0;i <= mealsPerDay.length;i++, j++) {
-    console.log(averageMeals);
-    console.log(mealsTotal + 'meals total');
      mealsTotal += mealsPerDay[i];
         averageMeals = mealsTotal / j;
+         console.log(averageMeals);
         if (averageMeals < 4) {
           if (tooHungryDay === 0) {
-                tooHungryDay = j;
+                 tooHungryDay = j;
           }
         }
 }
