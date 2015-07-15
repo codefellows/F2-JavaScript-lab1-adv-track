@@ -58,8 +58,8 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
 */
 
 //your code goes here
-assert('hippopotamus' === 'hippopotamus', 'hippopotamus equals hippopotamus - this assert will pass.');
-assert('jaguar' === 'cheetah', 'this is a failing assertion -A jaguar is not a cheetah.');
+assert(('hippopotamus' === 'hippopotamus'), 'hippopotamus equals hippopotamus - this assert will pass.');
+assert(('jaguar' === 'cheetah'), 'this is a failing assertion -A jaguar is not a cheetah.');
 
 /* ========================================================================
 ----------------- Meerkats (20 points total)-------------------------------
@@ -84,22 +84,22 @@ var sentence2Split = sentence2.split(' ');
 
 // your code goes here
 for (var i = 0; i < sentence1Split.length; i++) {
-    sentence1Split[i] = sentence1Split[i].replace('More', 'chirp').replace('food', 'chirp').replace('please', 'chirp');
-    sentence1 = sentence1Split.join(' ');
+  sentence1Split[i] = sentence1Split[i].replace('More', 'chirp').replace('food', 'chirp').replace('please', 'chirp');
+  sentence1 = sentence1Split.join(' ');
 }
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
 // your code goes here
 while (i <= sentence2Split.length) {
-    sentence2Split[i] = sentence2Split[i].replace('Come', 'chirp').replace('over', 'chirp').replace('here', 'chirp')
-    .replace('so', 'chirp').replace('you', 'chirp').replace('can', 'chirp').replace('scratch', 'chirp').replace('my', 'chirp').replace('belly', 'chirp');
-    sentence2 = sentence2Split.join(' ');
+  sentence2Split[i] = sentence2Split[i].replace('Come', 'chirp').replace('over', 'chirp').replace('here', 'chirp')
+  .replace('so', 'chirp').replace('you', 'chirp').replace('can', 'chirp').replace('scratch', 'chirp').replace('my', 'chirp').replace('belly', 'chirp');
+  sentence2 = sentence2Split.join(' ');
 }
 
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
-assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.','sentence 2 should have 9 chirps');
+assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.', 'sentence 2 should have 9 chirps');
 
 /* ========================================================================
 ----------------- Favorite Animals (12 points)-----------------------------
@@ -146,15 +146,15 @@ var tooHungryDay = 0;
 */
 
 // your code goes here
-for (var i = 0, j = 1, mealsTotal = 0, averageMeals = 0;i <= mealsPerDay.length;i++, j++) {
-    mealsTotal += mealsPerDay[i];
-        averageMeals = mealsTotal / j;
-         console.log(averageMeals);
-    if (averageMeals < 4) {
-        if (tooHungryDay === 0) {
-          tooHungryDay = j;
-        }
+for (var i = 0, j = 1, mealsTotal = 0, averageMeals = 0;i <= mealsPerDay.length, j <= mealsPerDay.length;i++, j++) {
+  mealsTotal += mealsPerDay[i];
+  averageMeals = mealsTotal / j;
+  console.log(averageMeals);
+  if (averageMeals < 4) {
+    if (tooHungryDay === 0) {
+      tooHungryDay = j;
     }
+  }
 }
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
