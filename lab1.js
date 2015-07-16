@@ -43,8 +43,8 @@ function assert(expression, failureMessage) {
  Here are some examples for how to use the assert method:
 */
 
-assert(1 === 1, '1 equals 1 - this assert will pass.');
-assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.');
+//assert(1 === 1, '1 equals 1 - this assert will pass.');
+//assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.');
 
 /* ===========================================================================
 ------------------Assertions (8 points total)---------------------------------
@@ -68,19 +68,17 @@ assert('cats' < 'lions' && 'dogs' > 'wolves', 'Faster, wilder, stronger');
 */
 
 var sentence1 = 'More food please.';
-var splitString = sentence1.split(" ");
-for (var i=0; i< splitString.length; i++){ 
-  splitString[i]= "chirp";
+var splitString = sentence1.split('');
+for (var i = 0; i < splitString.length; i++) {
+  splitString[i] = 'chirp';
 }
 sentence1 = splitString.join(' ');
-
-
 
 var sentence2 = 'Come over here so you can scratch my belly.';
 var splitString2 = sentence2.split(' ');
 var j = splitString2.length;
-while (j--){
-  splitString2[j] = "chirp";
+while (j--) {
+  splitString2[j] = 'chirp';
 }
 sentence2 = splitString2.join(' ');
 
@@ -101,13 +99,13 @@ var favoriteAnimals = ['elephant', 'penguin', 'eagle', 'camel'];
 
 var nextAnimal = Math.random();
 
-if(nextAnimal<0.25) {
+if (nextAnimal < 0.25) {
   nextAnimal = favoriteAnimals[0];
-} else if (nextAnimal>0.25 && nextAnimal<0.5) {
+} else if (nextAnimal > 0.25 && nextAnimal < 0.5) {
   nextAnimal = favoriteAnimals[1];
-} else if (nextAnimal>0.5 && nextAnimal<0.75) {
+} else if (nextAnimal > 0.5 && nextAnimal < 0.75) {
   nextAnimal = favoriteAnimals[2];
-} else if (nextAnimal>0.75) {
+} else if (nextAnimal > 0.75) {
   nextAnimal = favoriteAnimals[3];
 }
 
@@ -128,12 +126,6 @@ assert(nextAnimal, 'assign something to nextAnimal');
  figure out how many days it took before the lion decided to supplement his
  diet with the caretaker.
 */
-
-// number of times the new caretaker fed the lion. one array entry per day
-
-
-//write a var arrayDays [] followed by a for loop that adds arrayDays += mealsPerDay[i]
-// followed by avMealDay = arrayDays/ [i] and a sub if (avMealDay <4){break AND SOMETHING ABOUT WHICH DAY} 
 /*
  TODO: 20 points
  Cycle through the days in mealsPerDay. At each day, print out the average
@@ -146,15 +138,13 @@ var mealsPerDay = [5, 4, 3, 6, 2, 4, 3, 4, 5, 1];
 var tooHungryDay;
 var totalMeals = 0;
 
- for(var i=0; i<mealsPerDay.length; i++){
-	totalMeals +=mealsPerDay[i];
-    var avMeals = totalMeals/(i +1);
-	
-	if (avMeals<4){
-	return tooHungryDay = i;
-	}
-
-	console.log(tooHungryDay);}
+for (var i = 0; i < mealsPerDay.length; i++) {
+  totalMeals += mealsPerDay[i];
+  var avMeals = totalMeals / (i + 1);
+  if (avMeals < 4) {
+    tooHungryDay = i;
+  }
+}
 
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
