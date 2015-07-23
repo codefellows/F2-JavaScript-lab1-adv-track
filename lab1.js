@@ -68,11 +68,12 @@ assert('cats' < 'lions' && 'dogs' > 'wolves', 'Faster, wilder, stronger');
 */
 
 var sentence1 = 'More food please.';
-var splitString = sentence1.split('');
+var splitString = sentence1.split(' ');
 for (var i = 0; i < splitString.length; i++) {
   splitString[i] = 'chirp';
 }
-sentence1 = splitString.join(' ');
+sentence1 = splitString.join(' ') + ".";
+
 
 var sentence2 = 'Come over here so you can scratch my belly.';
 var splitString2 = sentence2.split(' ');
@@ -96,18 +97,9 @@ assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.',
 */
 
 var favoriteAnimals = ['elephant', 'penguin', 'eagle', 'camel'];
+var indexNumber = Math.floor(Math.random()*favoriteAnimals.length);
+var nextAnimal = favoriteAnimals[indexNumber];
 
-var nextAnimal = Math.random();
-
-if (nextAnimal < 0.25) {
-  nextAnimal = favoriteAnimals[0];
-} else if (nextAnimal > 0.25 && nextAnimal < 0.5) {
-  nextAnimal = favoriteAnimals[1];
-} else if (nextAnimal > 0.5 && nextAnimal < 0.75) {
-  nextAnimal = favoriteAnimals[2];
-} else if (nextAnimal > 0.75) {
-  nextAnimal = favoriteAnimals[3];
-}
 
 console.log(nextAnimal);
 // TODO: 10 points
