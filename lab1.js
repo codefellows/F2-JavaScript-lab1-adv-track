@@ -59,6 +59,12 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
 
 //your code goes here
 
+assert("lion" === "lion", "lion equals lion - this assert will pass.");
+assert("lion" === "animal", "this is an example of a failing assertion. Lion does not equal animal");
+
+assert("visitors" === "visitors", "visitors equals visitors - this assert will pass.");
+assert("visitors" === "staff", "this is an example of a failing assertion. visitors does not equal staff");
+
 /* ========================================================================
 ----------------- Meerkats (20 points total)-------------------------------
 ===========================================================================
@@ -79,10 +85,29 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 
 // your code goes here
 
+sentence1 = sentence1.split(" ");
+
+for(var i = 0; i < sentence1.length; i++){
+ sentence1[i] = "chirp";
+}
+
+sentence1 += ".";
+sentence1 = sentence1.split(",");
+sentence1 = sentence1.join(" ");
+
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
 // your code goes here
+
+var sentence2 = 'Come over here so you can scratch my belly.';
+sentence2 = sentence2.split(" ");
+var i = 0;
+
+while (i < 9) {
+ sentence2[i] = "chirp";
+ i++;
+}
 
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
@@ -105,6 +130,34 @@ var nextAnimal;
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
 // your code goes here
+
+var nextAnimal;
+var msg = "Go see the ";
+Math.random(nextAnimal) {
+  if (nextAnimal < .25);
+  print.console(msg + "elephant");
+} if else {
+  nextAnimal < .50;
+  print.console(msg + "penguin");
+} if else {
+  nextAnimal < .75;
+  print.console(msg + "eagle");
+} if else {
+  nextAnimal < 1;
+  print.console(msg + "camel")
+}
+
+var animalChoice = Math.random();
+if (animalChoice < 0.25) {
+  animalChoice = "elephant";
+} else if(animalChoice <= 0.50) {
+  animalChoice = "penguin";
+} else if(animalChoice <= 0.75) {
+  animalChoice = "eagle";
+} else {
+  animalChoice = "camel";
+}
+
 
 assert(nextAnimal, 'assign something to nextAnimal');
 
