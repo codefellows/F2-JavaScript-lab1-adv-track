@@ -1,26 +1,17 @@
 'use strict';
 
 /* LAB 1: A Trip to Woodland Park Zoo
-
  Welcome to Lab 1 =)
-
  Be sure to read all the comments!
-
  All of the instructions are inline with the assignment below. Look for the
  word TODO in comments.  Each TODO will have a description of what is
  required.
-
  To run this file, type the following (in the terminal):
-
     node lab1.js
-
  and then press enter/return.
-
  Instructions for turning this lab in are in the assignment description in
  Canvas.
-
  I'm happy to answer any questions on Slack.
-
 */
 
 /* ----------------- Helper ------------------------------------------------
@@ -36,15 +27,15 @@ function assert(expression, failureMessage) {
 /*
  An assertion is something we expect to be true about the state of the
  program at the point where the assertion is made.
-
  Remember, state is all the variables that we've declared and their current
  values.
-
  Here are some examples for how to use the assert method:
 */
 
+/*
 assert(1 === 1, '1 equals 1 - this assert will pass.');
 assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.');
+*/
 
 /* ===========================================================================
 ------------------Assertions (8 points total)---------------------------------
@@ -58,6 +49,11 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
 */
 
 //your code goes here
+var bears = 'bears';
+var animals = 'animals';
+var zebra = 'zebra  ';
+assert(bears > animals, 'This assertion will pass.');
+assert(bears > zebra, 'This assertion fails, since z has greater value than b.');
 
 /* ========================================================================
 ----------------- Meerkats (20 points total)-------------------------------
@@ -78,11 +74,23 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 // 'chirp' (10 points)
 
 // your code goes here
+var sentence1Split = sentence1.split(' ');
+for (var i = 0; i < sentence1Split.length; i++) {
+  sentence1Split [i] = 'chirp';
+  sentence1 = sentence1Split.join (' ') + '.';
+}
 
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
 // your code goes here
+var i = 0;
+var sentence2Split = sentence2.split(' ');
+while (i < sentence2Split.length) {
+  sentence2Split [i] = 'chirp';
+  i++;
+  var sentence2 = sentence2Split.join(' ') + '.';
+}
 
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
@@ -105,6 +113,9 @@ var nextAnimal;
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
 // your code goes here
+nextAnimal = favoriteAnimals[Math.floor(Math.random() * favoriteAnimals.length)];
+
+console.log (nextAnimal);
 
 assert(nextAnimal, 'assign something to nextAnimal');
 
@@ -114,7 +125,6 @@ assert(nextAnimal, 'assign something to nextAnimal');
  As long as the lion is well-fed, he doesn't take too much heed of the
  humans that pass through. Unfortunately, the new caretaker is a little
  absent minded.
-
  The lion needs 4 meals per day on average to stay happy. You're going to
  figure out how many days it took before the lion decided to supplement his
  diet with the caretaker.
@@ -134,6 +144,20 @@ var tooHungryDay;
 */
 
 // your code goes here
+var meals = 0;
+var tooHungryDay = -1;
+
+for (var i = 0; i < mealsPerDay.length; i++) {
+  meals = meals + mealsPerDay[i];
+  var average = meals / (i + 1);
+  console.log ('On day' + (i + 1) + '.' + 'average number of meals/day the lion got since the new caretaker started is: ' + average);
+
+  if (average < 4 && tooHungryDay < 0) {
+    tooHungryDay = i + 1;
+    console.log('The lion starts pondering protein supplements on day' + tooHungryDay);
+
+  }
+}
 
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
@@ -144,14 +168,11 @@ assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
  TODO: 10 points (5 points each for passing jshint and jscs)
  Now, we're going to use two tools: jshint and jscs, to check our code for
  best-practices and style consistency.
-
  If you haven't already, run this command in the terminal (inside of this
  directory): npm install
-
  Now, type
   grunt
    and it will run both jshint and jscs on your code.
-
  Error and warning descriptions will be printed in the terminal.
  To get full points, correct all of the errors/warnings.
 */

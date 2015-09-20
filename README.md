@@ -14,3 +14,5 @@ comments. Be sure to read everything. Run lab.js with `node lab1.js`.
 
 #### Resources and Collaborators
 
++Resources: Resources: Mozilla developer network, slack, stackoverflow, JavaScript&JQuery by Jon Duckett, Codecademy.
++Collaborators: James Bennett 
