@@ -56,6 +56,13 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
  zoo-themed.  Make one pass and one fail. In the failure message, describe why
  it failed.
 */
+var giraffe;
+var crocodile;
+var monkey = 1;
+var elephant = 1;
+
+assert(monkey && elephant, 'this will plass because both monkey and elephant evaluate to true!');
+assert(giraffe || crocodile, 'this will not pass because giraffe and crocodile both return undefined.');
 
 //your code goes here
 
@@ -76,13 +83,40 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 
 // TODO: part #1: use a for loop to replace the words in sentence 1 with
 // 'chirp' (10 points)
+var arr = sentence1.split(' ');
+
+for (var i = 0; i < arr.length; i++) {
+  if (i === arr.length - 1) {
+    arr[i] = 'chirp.';
+  } else {
+    arr[i] = 'chirp';
+  }
+
+}
+
+sentence1 = arr.join(' ');
 
 // your code goes here
 
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
+arr = sentence2.split(' ');
+i = 0;
+while (i < arr.length) {
+  if (i === arr.length - 1) {
+    arr[i] = 'chirp.';
+  } else {
+    arr[i] = 'chirp';
+  }
+  i++;
+
+}
+
+sentence2 = arr.join(' ');
 // your code goes here
+console.log(sentence1);
+console.log(sentence2);
 
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
@@ -103,7 +137,8 @@ var nextAnimal;
 
 // TODO: 12 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
-
+var ranNum = Math.floor(Math.random() * 4);
+nextAnimal = favoriteAnimals[ranNum];
 // your code goes here
 
 assert(nextAnimal, 'assign something to nextAnimal');
@@ -132,6 +167,26 @@ var tooHungryDay;
  pondering protein supplements (the first day the average dips below 4
  meals)
 */
+var total = 0;
+
+var averageMeals = function(total, day) {
+
+  var average = total / day;
+  console.log('The average on day ' + day + ' was ' + average + '.');
+  return average;
+
+};
+
+for (var i = 0;i < mealsPerDay.length;i++) {
+
+  var average = averageMeals((total += mealsPerDay[i]), (i + 1));
+  if (average < 4) {
+    console.log('OH MY GOD THE LION JUST ATE THE CARETAKER! EVERYONE RUN FOR YOUR LIVES!!');
+    tooHungryDay = i + 1;
+    break;
+  }
+
+}
 
 // your code goes here
 
