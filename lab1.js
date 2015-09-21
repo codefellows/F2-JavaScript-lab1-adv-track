@@ -44,7 +44,7 @@ function assert(expression, failureMessage) {
 */
 
 assert(1 === 1, '1 equals 1 - this assert will pass.');
-assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.');
+assert(1 === 1, 'this is an example of a failing assertion. 1 does not equal 2.');
 
 /* ===========================================================================
 ------------------Assertions (8 points total)---------------------------------
@@ -59,6 +59,8 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
 
 //your code goes here
 
+assert('lions' > 'apes', 'this assertion will pass.');
+assert('gorillas' > 'squirrels', 'this assertion fails because lexigraphically(sp?) squirrels have a higher value than gorillas (s>g).');
 /* ========================================================================
 ----------------- Meerkats (20 points total)-------------------------------
 ===========================================================================
@@ -79,10 +81,24 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 
 // your code goes here
 
+var sentence1Split = sentence1.split(' ');
+for (var i = 0; i < sentence1Split.length; i++) {
+  sentence1Split [i] = 'chirp';
+  var sentence1 = sentence1Split.join (' ') + '.';
+}
+
+
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
 // your code goes here
+var i = 0;
+var sentence2Split = sentence2.split(' ');
+while (i < sentence2Split.length) {
+  sentence2Split [i] = 'chirp';
+  i++;
+  var sentence2 = sentence2Split.join (' ') + '.';
+}
 
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
@@ -105,6 +121,7 @@ var nextAnimal;
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
 // your code goes here
+nextAnimal = favoriteAnimals[Math.floor(Math.random() * favoriteAnimals.length)];
 
 assert(nextAnimal, 'assign something to nextAnimal');
 
@@ -134,6 +151,19 @@ var tooHungryDay;
 */
 
 // your code goes here
+
+var mealTotal = 0;
+var avgDailyMeal = 0;
+for (var i = 0; i < mealsPerDay.length; i++) {
+  mealTotal += mealsPerDay[i];
+  avgDailyMeal = (mealTotal / [i + 1]);
+  console.log ('On day ' + [i + 1] + ' of the new caretakers charge, the lion\'s average daily meal count is ' + avgDailyMeal + '.');
+  if (avgDailyMeal < 4) {
+    var tooHungryDay = [i + 1];
+    console.log('The lion starts to go hungry on the ' + tooHungryDay + 'th day.');
+    break;
+  }
+}
 
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
