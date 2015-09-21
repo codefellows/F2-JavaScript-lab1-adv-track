@@ -131,31 +131,17 @@ var nextAnimal;
 
 // your code goes here
 
-var nextAnimal;
-var msg = "Go see the ";
-Math.random(nextAnimal) {
-  if (nextAnimal < .25);
-  print.console(msg + "elephant");
-} if else {
-  nextAnimal < .50;
-  print.console(msg + "penguin");
-} if else {
-  nextAnimal < .75;
-  print.console(msg + "eagle");
-} if else {
-  nextAnimal < 1;
-  print.console(msg + "camel")
-}
 
-var animalChoice = Math.random();
-if (animalChoice < 0.25) {
-  animalChoice = "elephant";
-} else if(animalChoice <= 0.50) {
-  animalChoice = "penguin";
-} else if(animalChoice <= 0.75) {
-  animalChoice = "eagle";
+
+var nextAnimal = Math.random();
+if (nextAnimal < 0.25) {
+  nextAnimal = "elephant";
+} else if(nextAnimal <= 0.50) {
+  nextAnimal = "penguin";
+} else if(nextAnimal <= 0.75) {
+  nextAnimal = "eagle";
 } else {
-  animalChoice = "camel";
+  nextAnimal = "camel";
 }
 
 
