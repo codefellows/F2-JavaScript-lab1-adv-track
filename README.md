@@ -14,3 +14,5 @@ comments. Be sure to read everything. Run lab.js with `node lab1.js`.
 
 #### Resources and Collaborators
 
+I used google to research different ways of using array methods mostly.  I used stack overflow questions, and w3schools.com reference in particular.
+
