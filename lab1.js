@@ -59,6 +59,9 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
 
 //your code goes here
 
+assert(8 === 8, 'The lions sleeps tonight. This passed because the string values are the same.');
+assert(5 > 8, 'This failed becasue the greater than operator is trying to compare a string data type with a number data type.');
+
 /* ========================================================================
 ----------------- Meerkats (20 points total)-------------------------------
 ===========================================================================
@@ -79,10 +82,35 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 
 // your code goes here
 
+var sentenceWords1 = sentence1.split(' ');
+var arrayLength1 = sentenceWords1.length;
+var msg1 = '';
+var i;
+
+for (i = 1; i < arrayLength1; i++) {
+  sentenceWords1[i] = 'chirp';
+  msg1 += sentenceWords1[i] + ' ';
+}
+
+var sentence1 = msg1 + 'chirp.';
+
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
 // your code goes here
+
+var sentenceWords2 = sentence2.split(' ');
+var arrayLength2 = sentenceWords2.length;
+var msg2 = '';
+var x = 1;
+
+while (x < arrayLength2) {
+  sentenceWords2[x] = 'chirp';
+  msg2 += sentenceWords2[x] + ' ';
+  x++;
+}
+
+var sentence2 = msg2 + 'chirp.';
 
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
@@ -105,6 +133,9 @@ var nextAnimal;
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
 // your code goes here
+
+var randomNum = Math.floor(Math.random() * 4);
+nextAnimal = favoriteAnimals[randomNum];
 
 assert(nextAnimal, 'assign something to nextAnimal');
 
@@ -134,6 +165,26 @@ var tooHungryDay;
 */
 
 // your code goes here
+
+var arrayMealsPerDayLength = mealsPerDay.length;
+var runningTotalNbrMeals = 0;
+var runningTotalNbrDays = 0;
+var averageMealsDay;
+var y;
+
+for (y = 0; y < arrayMealsPerDayLength; y++) {
+  runningTotalNbrMeals += mealsPerDay[y];
+  runningTotalNbrDays++;
+  var averageMealsDay = (runningTotalNbrMeals / runningTotalNbrDays);
+
+  console.log('Day ' + runningTotalNbrDays + ': Average Meals Day= ' + averageMealsDay);
+
+  if ((averageMealsDay < 4) && (typeof tooHungryDay === 'undefined')) {
+    tooHungryDay = runningTotalNbrDays;
+  }
+}
+
+console.log('Day' + ' ' + tooHungryDay + ' is the first day average meals is below 4... hungry kitty.');
 
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');

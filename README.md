@@ -14,3 +14,7 @@ comments. Be sure to read everything. Run lab.js with `node lab1.js`.
 
 #### Resources and Collaborators
 
+The TA, Vi Dang, helped me sort out getting the grunt utility to work via a Slack conversation.
+
+I used Duckett to reference example code to create the "for" and "while" loops.  I also used Duckett to help figure out the Math.Random function.
+
