@@ -82,8 +82,32 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
-// your code goes here
+function newSentence(sentence) {
+  var words = sentence.split('.');
+  // words is now an array containing the content of sentence in [0] and an empty string in [1]
 
+  words = words[0].split(' ');
+  for (var i = 0; i < words.length; i++) {
+    // now words is an array containing just the words of sentence with no spaces
+    // for as many words as are in the sentence, execute the following:
+    words[i] = 'chirp';
+    // replace the current element in the array with 'chirp'
+
+  }
+
+  words = words.join(' ');
+  // join the elements of words into a string separated by a space ' '
+
+  words += '.';
+  // add a period to the end of the string
+
+  return words;
+  // return the updated sentence
+}
+
+sentence1 = newSentence(sentence1);
+sentence2 = newSentence(sentence2);
+//
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
 assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.',
@@ -105,6 +129,10 @@ var nextAnimal;
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
 // your code goes here
+
+nextAnimal = favoriteAnimals[Math.floor(Math.random() * 4)];
+// assign a random element from favoriteAnimals to nextAnimal
+// Math.floor truncates the random value, allowing for an even distribution
 
 assert(nextAnimal, 'assign something to nextAnimal');
 
@@ -133,8 +161,33 @@ var tooHungryDay;
  meals)
 */
 
-// your code goes here
+var totalMeals = 0;
+// totalMeals is the total of all of the lion's meals
 
+var avgMeals = 0;
+// avgMeals is the average meals per day that the lion eats
+
+for (var i = 0; i < mealsPerDay.length; i++) {
+// for as many days as we have data for, execute the following:
+
+  totalMeals += mealsPerDay[i];
+   // add today's meals to the running total
+
+  avgMeals = totalMeals / (i + 1);
+   // calculate the average meals eaten by the lion so far
+
+  if (avgMeals < 4) {
+    // if the lion's average is lower than 4 after today's meals
+
+    tooHungryDay = i + 1;
+    // today was the day the lion became too hungry
+    // the +1 is because our counter, i, started at 0 for the first day
+
+    break;
+    // there is no need to keep going once we've hit the too hungry day
+    // FeelsBadMan
+  }
+}
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
 
