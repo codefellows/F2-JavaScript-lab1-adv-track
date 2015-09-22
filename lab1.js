@@ -43,8 +43,8 @@ function assert(expression, failureMessage) {
  Here are some examples for how to use the assert method:
 */
 
-assert(1 === 1, '1 equals 1 - this assert will pass.');
-assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.');
+//assert(1 === 1, '1 equals 1 - this assert will pass.');
+// assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.');
 
 /* ===========================================================================
 ------------------Assertions (8 points total)---------------------------------
@@ -57,7 +57,8 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
  it failed.
 */
 
-//your code goes here
+assert('monkey' === 'monkey', 'the string monkey equals the second string monkey in its value and its type, so it does pass.');
+assert('monkey' === 'giraffe', 'the string monkey does NOT equal the string giraffe in its value, so it does not pass.');
 
 /* ========================================================================
 ----------------- Meerkats (20 points total)-------------------------------
@@ -77,12 +78,26 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 // TODO: part #1: use a for loop to replace the words in sentence 1 with
 // 'chirp' (10 points)
 
-// your code goes here
+var encodeSent1 = sentence1.split('');
+
+for (var i = 0; i < 3; i++) {
+  encodeSent1.splice(i, encodeSent1.length - 2, 'chirp ');
+}
+encodeSent1.splice(2, 1, 'chirp.');
+sentence1 = encodeSent1.join('');
 
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
-// your code goes here
+sentence2 = sentence2.split(' ');
+var i = 0;
+
+while (i < 9) {
+  sentence2[i] = 'chirp';
+  i++;
+}
+sentence2 = sentence2.join(' ');
+sentence2 += '.';
 
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
@@ -104,7 +119,21 @@ var nextAnimal;
 // TODO: 12 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
-// your code goes here
+var pickaNumber = Math.random();  // Assign the value of a random number to
+                                  // a holder variable.
+
+if (pickaNumber <= 0.25) {        // Each value window assigns an array index
+  nextAnimal = favoriteAnimals[0];// to nextAnimal if it matches that random int.
+}
+if (pickaNumber > 0.25 && pickaNumber <= 0.5) {
+  nextAnimal = favoriteAnimals[1];
+}
+if (pickaNumber > 0.5 && pickaNumber <= 0.75) {
+  nextAnimal = favoriteAnimals[2];
+}
+if (pickaNumber > 0.75) {
+  nextAnimal = favoriteAnimals[3];
+}
 
 assert(nextAnimal, 'assign something to nextAnimal');
 
@@ -132,8 +161,21 @@ var tooHungryDay;
  pondering protein supplements (the first day the average dips below 4
  meals)
 */
-
-// your code goes here
+(function byeByeCaretaker() {     // Create an IIFE to control how long we need to
+  tooHungryDay = 0;               // run the data. Create variables to help perform
+  var sumOfAllMeals = 0;         // averages operations.
+  var avgMeals = 0;
+  for (var i = 0; i < mealsPerDay.length; i++) { // Iterate over the array.
+    tooHungryDay++;                              // Keep track of the day.
+    sumOfAllMeals += mealsPerDay[i];             // Keep track of meals.
+    avgMeals = (sumOfAllMeals / tooHungryDay);   // Calc the avg for each day.
+    console.log(avgMeals + ' meals on avg');     // Log the avg.
+    if (avgMeals < 4) {                          // When the avg falls below
+      console.log('day ' + tooHungryDay);        // the alloted 4 meals,
+      return;                                    // log the day the lion
+    }                                            // eats the caretaker and exit
+  }                                              // the function.
+})();
 
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
