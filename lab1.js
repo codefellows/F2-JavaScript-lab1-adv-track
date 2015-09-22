@@ -173,6 +173,26 @@ var tooHungryDay;
 */
 
 // your code goes here
+var mealsPerDay = [5, 4, 3, 6, 2, 4, 3, 4, 5, 1];
+var tooHungryDay;
+var runTotal;
+
+var i = 0;
+var meals = 0;
+var day = 0;
+var total = 0;
+while (i < mealsPerDay.length) {
+      meals += mealsPerDay[i];
+      day += 1;
+      console.log(meals/day);
+      if(meals/day < 4)
+      {
+        tooHungryDay = day;
+        console.error(tooHungryDay);
+      }
+      i++;
+}
+
 
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
