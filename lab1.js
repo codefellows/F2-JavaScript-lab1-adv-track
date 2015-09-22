@@ -1,5 +1,4 @@
 'use strict';
-
 /* LAB 1: A Trip to Woodland Park Zoo
 
  Welcome to Lab 1 =)
@@ -56,7 +55,11 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
  zoo-themed.  Make one pass and one fail. In the failure message, describe why
  it failed.
 */
-
+var wolf = {species: 'dog'};
+var tiger = {species: 'cat'};
+var lion = {species: 'cat'};
+assert(tiger.species === lion.species, 'They are both cats.');
+assert(wolf.species === tiger.species, 'Both objects have a different value for the species key.');
 //your code goes here
 
 /* ========================================================================
@@ -78,10 +81,22 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 // 'chirp' (10 points)
 
 // your code goes here
-
+var sentence1chirp = sentence1.split(' ');
+for (i = 0; i < sentence1chirp.length; i++) {
+  sentence1chirp[i] = 'chirp';
+}
+sentence1 = sentence1chirp.toString();
+sentence1 = sentence1.replace(/,/g, ' ') + '.';
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
-
+var sentence2chirp = sentence2.split(' ');
+var i = 0;
+while (i < sentence2chirp.length) {
+  sentence2chirp[i] = 'chirp';
+  i++;
+}
+sentence2 = sentence2chirp.toString();
+sentence2 = sentence2.replace(/,/g, ' ') + '.';
 // your code goes here
 
 // Leave these assertions as-is! If they pass, your code works.
@@ -105,7 +120,9 @@ var nextAnimal;
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
 // your code goes here
-
+	var bob = Math.random() * (4 - 0) + 0;
+	bob = Math.floor(bob);
+	nextAnimal = favoriteAnimals[bob];
 assert(nextAnimal, 'assign something to nextAnimal');
 
 /* ===================================================================
@@ -122,8 +139,21 @@ assert(nextAnimal, 'assign something to nextAnimal');
 
 // number of times the new caretaker fed the lion. one array entry per day
 var mealsPerDay = [5, 4, 3, 6, 2, 4, 3, 4, 5, 1];
-var tooHungryDay;
-
+var tooHungryDay = 10;
+var totalMeals = 0;
+var averageMeals;
+var counter = 0;
+for (i = 0; i < mealsPerDay.length; i++) {
+	totalMeals = totalMeals + mealsPerDay[i];
+	averageMeals = totalMeals / (i + 1);
+	console.log(averageMeals);
+	if (counter === 0) {
+		if (averageMeals < 4) {
+			tooHungryDay = i + 1;
+			counter++;
+		}
+	}
+}
 /*
  TODO: 20 points
  Cycle through the days in mealsPerDay. At each day, print out the average
@@ -132,7 +162,6 @@ var tooHungryDay;
  pondering protein supplements (the first day the average dips below 4
  meals)
 */
-
 // your code goes here
 
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
