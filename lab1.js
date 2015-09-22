@@ -100,14 +100,17 @@ sentence1 = sentence1.join(" ");
 
 // your code goes here
 
-var sentence2 = 'Come over here so you can scratch my belly.';
-sentence2 = sentence2.split(" ");
+var sentence2 = sentence2.split(' ');
 var i = 0;
 
-while (i < 9) {
- sentence2[i] = "chirp";
- i++;
+while (i < sentence2.length) {
+  sentence2[i] = 'chirp';
+  i++;
 }
+
+sentence2 += '.';
+sentence2 = sentence2.split(',');
+sentence2 = sentence2.join(' ');
 
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
@@ -188,7 +191,7 @@ while (i < mealsPerDay.length) {
       if(meals/day < 4)
       {
         tooHungryDay = day;
-        console.error(tooHungryDay);
+        console.log(tooHungryDay);
       }
       i++;
 }
