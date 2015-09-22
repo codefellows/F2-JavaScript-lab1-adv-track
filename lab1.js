@@ -58,6 +58,8 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
 */
 
 //your code goes here
+assert(3 === 3);
+assert(3 === 2, '3 does not equal 2');
 
 /* ========================================================================
 ----------------- Meerkats (20 points total)-------------------------------
@@ -78,11 +80,29 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 // 'chirp' (10 points)
 
 // your code goes here
+var sentence1 = sentence1.split(' ');
+
+for (var i = 0; i < sentence1.length; i++) {
+  sentence1[i] = 'chirp';
+}
+
+sentence1 = sentence1.join(' ') + '.';
 
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
 // your code goes here
+var sentence2 = sentence2.split(' ');
+var i = 0;
+
+while (i !== 10) {
+  i++;
+  for (var item = 0; item < sentence2.length ; item++) {
+    sentence2[item] = 'chirp';
+  }
+}
+
+sentence2 = sentence2.join(' ') + '.';
 
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
@@ -105,6 +125,11 @@ var nextAnimal;
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
 // your code goes here
+var animalPick = function(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+nextAnimal = favoriteAnimals[animalPick(0, 3)];
+console.log(nextAnimal);
 
 assert(nextAnimal, 'assign something to nextAnimal');
 
@@ -134,6 +159,20 @@ var tooHungryDay;
 */
 
 // your code goes here
+var meals = 0;
+var day = 0;
+var i = 0;
+var avgMeals;
+
+for (var i = 0; i < mealsPerDay.length; i++) {
+  meals += mealsPerDay[i];
+  day++;
+  avgMeals = (meals / day);
+
+  if ((avgMeals < 4) && (typeof tooHungryDay === 'undefined')) {
+    tooHungryDay = day;
+  }
+}
 
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
@@ -150,7 +189,7 @@ assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
 
  Now, type
   grunt
-   and it will run both jshint and jscs on your code.
+  and it will run both jshint and jscs on your code.
 
  Error and warning descriptions will be printed in the terminal.
  To get full points, correct all of the errors/warnings.
