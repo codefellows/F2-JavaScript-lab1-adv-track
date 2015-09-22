@@ -13,4 +13,5 @@ comments. Be sure to read everything. Run lab.js with `node lab1.js`.
 
 
 #### Resources and Collaborators
-
+Some stack overflow and MDN for splice method usage, and IIFE review for closing
+it out syntactically for the mealsPerDay challenge.
