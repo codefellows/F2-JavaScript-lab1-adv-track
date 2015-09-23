@@ -32,7 +32,6 @@ function assert(expression, failureMessage) {
     console.log('assertion failure: ', failureMessage);
   }
 }
-
 /*
  An assertion is something we expect to be true about the state of the
  program at the point where the assertion is made.
@@ -56,9 +55,11 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
  zoo-themed.  Make one pass and one fail. In the failure message, describe why
  it failed.
 */
-
+var ocelot1 = 'Ocelot is sleeping';
+var ocelot2 = 'Ocelot is eating';
 //your code goes here
-
+console.assert(ocelot1 === 'Ocelot is sleeping', 'Where did it go?!');
+console.assert(ocelot2 === 'Ocelot is catching birds', 'The ocelot is playing with it\'s food');
 /* ========================================================================
 ----------------- Meerkats (20 points total)-------------------------------
 ===========================================================================
@@ -73,20 +74,28 @@ var sentence2 = 'Come over here so you can scratch my belly.';
  assertions at the end of this section should pass when you're done.
  HINT: the 'split' method on String will be useful.
 */
-
+var food = sentence1.split([' ']);
 // TODO: part #1: use a for loop to replace the words in sentence 1 with
 // 'chirp' (10 points)
-
+for (var i = 0; i < food.length; i++) {
+  food[i] = 'chirp';
+}
+food = food.join(' ') + '.';
+console.log(food);
 // your code goes here
 
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
-
+var belly = sentence2.split([' ']);
 // your code goes here
-
+for (var i = 0; i < belly.length; i++) {
+  belly[i] = 'chirp';
+}
+belly = belly.join(' ') + '.';
+console.log(belly);
 // Leave these assertions as-is! If they pass, your code works.
-assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
-assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.',
+assert(food === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
+assert(belly === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.',
   'sentence 2 should have 9 chirps');
 
 /* ========================================================================
@@ -103,7 +112,19 @@ var nextAnimal;
 
 // TODO: 12 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
+var animal = Math.floor(Math.random() * 4);
 
+switch (animal) {
+  case 0: nextAnimal = favoriteAnimals[0];
+  break;
+  case 1: nextAnimal = favoriteAnimals[1];
+  break;
+  case 2: nextAnimal = favoriteAnimals[2];
+  break;
+  case 3: nextAnimal = favoriteAnimals[3];
+  break;
+  default: nextAnimal = console.log('We don\'t have your favorite animal at this zoo');
+}
 // your code goes here
 
 assert(nextAnimal, 'assign something to nextAnimal');
@@ -123,6 +144,18 @@ assert(nextAnimal, 'assign something to nextAnimal');
 // number of times the new caretaker fed the lion. one array entry per day
 var mealsPerDay = [5, 4, 3, 6, 2, 4, 3, 4, 5, 1];
 var tooHungryDay;
+var totalMeals = 0;
+var currentDay = 0;
+for (var i = 0; i <= mealsPerDay.length; i++) {
+  totalMeals += mealsPerDay[i];
+  currentDay = i + 1;
+  console.log('Today\'s meal average is ' + (totalMeals / currentDay));
+  if ((totalMeals / currentDay) < 4) {
+    tooHungryDay = currentDay;
+    console.log('Look out for that hungry lion on ' + tooHungryDay);
+    i = mealsPerDay.length;
+  }
+}
 
 /*
  TODO: 20 points
